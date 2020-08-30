@@ -2,6 +2,7 @@ var StartChanging = false;
 
 var blockedtext = /[\w]/g;
 var dontchange = /[\d`~!@#$%^&*()_+-={}.,><;:'"?]/g;
+var blockednodes = /SCRIPT|STYLE|NOSCRIPT/;
 
 var observer = new MutationObserver(function (m) {
     m.forEach(function(mut){
@@ -41,9 +42,9 @@ function changeText(elementes){
         //goes through each child of element
         for(var c = 0; c< elementes[i].childNodes.length;c++){
             child = elementes[i].childNodes[c];
-            //checks if 
-            console.log(child);
-            if(elementes[i].hasChildNodes() && child.nodeType == 3 && blockedtext.test(child.textContent) && elementes[i].tagName.toUpperCase() !== 'SCRIPT'&&elementes[i].tagName.toUpperCase() !== 'STYLE'&& elementes[i].tagName.toUpperCase() !== 'NOSCRIPT') {
+            //checks if child is text node and should be changed
+            //can be neater
+            if(elementes[i].hasChildNodes() && child.nodeType == 3 && blockedtext.test(child.textContent) && !blockednodes.test(elementes[i].tagName.toUpperCase())) {
                 var strlength = child.textContent.length;
                 var statlen = strlength;
                 var textarray = child.textContent.split(' ');

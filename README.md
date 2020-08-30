@@ -1,2 +1,2 @@
-# bruh-extension
+# The bruh extension
 Code for Bruh extension

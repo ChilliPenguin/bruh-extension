@@ -13,11 +13,27 @@ var observer = new MutationObserver(function (m) {
         }
     })
 })
-chrome.runtime.onMessage.addListener(function (request) {    
-    observer.observe(document.body, {childList: true,subtree: true});
-    StartChanging = true;
-    var elements = document.querySelectorAll("body, body *");
-    changeText(elements);
+
+chrome.runtime.onMessage.addListener(function (request) {
+    if(request == "BruhOn"){
+        observer.observe(document.body, {childList: true,subtree: true});
+        StartChanging = true;
+        var elements = document.querySelectorAll("body, body *");
+        changeText(elements);
+    }else if(request == "BruhOff"){
+        observer.disconnect();
+    }
+});
+
+chrome.storage.local.get(['BruhButtonOn'], function(items){
+    if(items.BruhButtonOn){
+        observer.observe(document.body, {childList: true,subtree: true});
+        StartChanging = true;
+        var elements = document.querySelectorAll("body, body *");
+        changeText(elements);
+    }else if(!BruhButtonOn){
+        observer.disconnect();
+    }
 });
 String.prototype.replaceAt = function(index, replacement, caseSensitive = false){
     //checks if char should match orginal char's case

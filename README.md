@@ -8,4 +8,4 @@ Its as easy as three steps!
 3. A popup will ... *pop up*, click on the button(or slider) and there you go.
 
 # Documentation
-Uh nothing here yet, I need to actually devlop features!
+Uh nothing here yet, I need to actually devlop features ...

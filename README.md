@@ -1,5 +1,5 @@
 # The bruh extension
-The bruh extension converts any web page's text into `bruhs`. Thats it, really.
+The bruh extension converts any web page's text into `bruh`(s). Thats it, really.
 
 # How to use
 Its as easy as three steps!

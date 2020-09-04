@@ -28,7 +28,9 @@ chrome.runtime.onMessage.addListener(function (request) {
         changeText(elements);
     }else if(request == "BruhOff"){
         observer.disconnect();
-
+    }
+    if(request == "Refresh"){
+        history.go();
     }
 });
 window.onload = function WindowLoad(event) {

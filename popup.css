@@ -1,6 +1,12 @@
+body {
+  background: rgb(85,9,103);
+  background: linear-gradient(35deg, rgba(85,9,103,1) 0%, rgba(55,199,228,1) 100%);
+}
+
+
 .checkbox {
-    position: relative;
-    display: inline-block;
+    position: absolute;
+    display: inline-flex;
     width: 35%;
     height: 17%;
   }
@@ -25,10 +31,10 @@
     position: absolute;
     content: "";
     transform: translateX(110%);
-    height: 155%;
-    width: 50%;
+    height: 180%;
+    width: 54%;
     bottom: -20%;
-    background-color: black;
+    background-color: white;
     transition: .4s;
   }
   
@@ -51,3 +57,10 @@
   .slider.round:before {
     border-radius: 50%;
   }
+
+h1, h2 {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  color:whitesmoke;
+}

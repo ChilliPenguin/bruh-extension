@@ -8,12 +8,11 @@ let observer = new MutationObserver(function (m) {
         m.forEach(function(mut){
             if(mut.addedNodes){
                 for(var an =0;an<mut.addedNodes.length;an++){
-                        if(mut.addedNodes[an] == undefined) break;
-
+                    if(mut.addedNodes[an] == undefined) break;
                         try{
                             changeText(mut.addedNodes[an].querySelectorAll('*'));
                         }catch(e){
-                            //console.log(mut.addedNodes[an]);
+                            var placeholdersz;
                         }
                         
                 }
@@ -29,6 +28,7 @@ chrome.runtime.onMessage.addListener(function (request) {
         changeText(elements);
     }else if(request == "BruhOff"){
         observer.disconnect();
+
     }
 });
 window.onload = function WindowLoad(event) {

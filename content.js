@@ -4,19 +4,26 @@ var blockedtext = /[\w]/g;
 var dontchange = /[\d`~!@#$%^&*()_+-={}.,><;:'"?]/g;
 var blockednodes = /SCRIPT|STYLE|NOSCRIPT/;
 
-var observer = new MutationObserver(function (m) {
-    m.forEach(function(mut){
-         if(mut.addedNodes.length){
-            for(var an =0;an<mut.addedNodes.length;an++){
-                changeText(mut.addedNodes[an].querySelectorAll("*"));
+let observer = new MutationObserver(function (m) {
+        m.forEach(function(mut){
+            if(mut.addedNodes){
+                for(var an =0;an<mut.addedNodes.length;an++){
+                        if(mut.addedNodes[an] == undefined) break;
+
+                        try{
+                            changeText(mut.addedNodes[an].querySelectorAll('*'));
+                        }catch(e){
+                            //console.log(mut.addedNodes[an]);
+                        }
+                        
+                }
             }
-        }
-    })
+        })
 })
 
 chrome.runtime.onMessage.addListener(function (request) {
     if(request == "BruhOn"){
-        observer.observe(document.body, {childList: true,subtree: true});
+        observer.observe(document.body, {childList: true,subtree: true, attributes:false});
         StartChanging = true;
         var elements = document.querySelectorAll("body, body *");
         changeText(elements);
@@ -24,17 +31,19 @@ chrome.runtime.onMessage.addListener(function (request) {
         observer.disconnect();
     }
 });
+window.onload = function WindowLoad(event) {
+    chrome.storage.local.get(['BruhButtonOn'], function(items){
+        if(items.BruhButtonOn){
+            observer.observe(document.body, {childList: true,subtree: true, attributes:false});
+            StartChanging = true;
+            var elements = document.querySelectorAll("body, body *");
+            changeText(elements);
+        }else if(!BruhButtonOn){
+            observer.disconnect();
+        }
+    });
+}
 
-chrome.storage.local.get(['BruhButtonOn'], function(items){
-    if(items.BruhButtonOn){
-        observer.observe(document.body, {childList: true,subtree: true});
-        StartChanging = true;
-        var elements = document.querySelectorAll("body, body *");
-        changeText(elements);
-    }else if(!BruhButtonOn){
-        observer.disconnect();
-    }
-});
 String.prototype.replaceAt = function(index, replacement, caseSensitive = false){
     //checks if char should match orginal char's case
     //Warning: This can also be used to divide Words without spaces-> impliment

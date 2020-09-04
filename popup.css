@@ -1,8 +1,8 @@
 .checkbox {
     position: relative;
     display: inline-block;
-    width: 35px;
-    height: 17px;
+    width: 35%;
+    height: 17%;
   }
   
   #BruhButton {
@@ -13,10 +13,10 @@
   .slider {
     position: absolute;
     cursor: pointer;
-    top: 77;
-    left: 25;
-    right: 25;
-    bottom: 20;
+    top: 72%;
+    left: 27%;
+    right: 27%;
+    bottom: 17%;
     background-color: #ccc;
     transition: .4s;
   }
@@ -24,10 +24,10 @@
   .slider:before {
     position: absolute;
     content: "";
-    transform: translateX(26px);
-    height: 20px;
-    width: 20px;
-    bottom: -4px;
+    transform: translateX(110%);
+    height: 155%;
+    width: 50%;
+    bottom: -20%;
     background-color: black;
     transition: .4s;
   }
@@ -43,7 +43,7 @@
   input:checked + .slider:before {
     -webkit-transform: translateX(-10px);
     -ms-transform: translateX(-10px);
-    transform: translateX(-8px);
+    transform: translateX(-20%);
   }
   .slider.round {
     border-radius: 34px;

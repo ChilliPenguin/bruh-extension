@@ -3,7 +3,7 @@
     "version": "1.1",
     "version_name":"SliderTime",
     "description": "Bruh Moment",
-    "manifest_version": 3,
+    "manifest_version": 2,
     "browser_action": {
         "default_popup":"popup.html",
         "default_icon": "logo.png"

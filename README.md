@@ -11,6 +11,6 @@ Its as easy as three steps!
 Uh nothing here yet, I need to actually devlop features ...
 
 # Current Versions
-Chrome Store:SliderTime(v1.2)  
+Chrome Store:SliderTime(v1.2), v1.3 pending review
 
-Github:SliderTime(v1.2)
+Github:Fancy(v1.3)

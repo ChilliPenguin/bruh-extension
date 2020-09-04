@@ -9,3 +9,7 @@ Its as easy as three steps!
 
 # Documentation
 Uh nothing here yet, I need to actually devlop features ...
+
+# Current Versions
+Chrome Store:SliderTime(v1.2)
+Github:SliderTime(v1.2)

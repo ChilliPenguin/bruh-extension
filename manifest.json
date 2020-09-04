@@ -1,9 +1,9 @@
 {
     "name": "Bruh",
-    "version": "1.0",
-    "version_name":"goodenough",
+    "version": "1.1",
+    "version_name":"SliderTime",
     "description": "Bruh Moment",
-    "manifest_version": 2,
+    "manifest_version": 3,
     "browser_action": {
         "default_popup":"popup.html",
         "default_icon": "logo.png"
@@ -13,7 +13,7 @@
     ],
     "options_ui": {
       "page": "options.html",
-    "open_in_tab": false
+      "open_in_tab": false
     },
     "content_scripts": [
       {

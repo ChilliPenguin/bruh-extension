@@ -3,60 +3,59 @@ body {
   background: linear-gradient(35deg, rgba(85,9,103,1) 0%, rgba(55,199,228,1) 100%);
 }
 
-
 .checkbox {
     position: absolute;
     display: inline-flex;
     width: 35%;
     height: 17%;
-  }
-  
-  #BruhButton {
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }
-  .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 72%;
-    left: 27%;
-    right: 27%;
-    bottom: 17%;
-    background-color: #ccc;
-    transition: .4s;
-  }
-  
-  .slider:before {
-    position: absolute;
-    content: "";
-    transform: translateX(-20%);
-    height: 180%;
-    width: 54%;
-    bottom: -20%;
-    background-color: white;
-    transition: .4s;
-  }
-  
-  input:checked + .slider {
-    background-color: greenyellow;
-  }
-  
-  input:focus + .slider {
-    box-shadow: 0 0 1px greenyellow;
-  }
-  
-  input:checked + .slider:before {
-    -webkit-transform: translateX(-10px);
-    -ms-transform: translateX(-10px);
-    transform: translateX(110%);
-  }
-  .slider.round {
-    border-radius: 34px;
-  }
-  .slider.round:before {
-    border-radius: 50%;
-  }
+}
+
+#BruhButton {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 72%;
+  left: 27%;
+  right: 27%;
+  bottom: 17%;
+  background-color: #ccc;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  transform: translateX(-20%);
+  height: 180%;
+  width: 54%;
+  bottom: -25%;
+  background-color: white;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: greenyellow;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px greenyellow;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(-10px);
+  -ms-transform: translateX(-10px);
+  transform: translateX(110%);
+}
+.slider.round {
+  border-radius: 34px;
+}
+.slider.round:before {
+  border-radius: 50%;
+}
 
 h1, h2 {
   display: flex;
@@ -64,3 +63,5 @@ h1, h2 {
   margin: 0 auto;
   color:whitesmoke;
 }
+
+

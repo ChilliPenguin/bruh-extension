@@ -21,7 +21,6 @@ let observer = new MutationObserver(function (m)
                 for(var an =0;an <mut.addedNodes.length;an++)
                 {
                     if(mut.addedNodes[an] == undefined) break;
-                        console.log("YEEP")
                         try
                         {
                             changeText(mut.addedNodes[an].querySelectorAll('*'));
@@ -40,7 +39,6 @@ chrome.runtime.onMessage.addListener(function (request)
 {
     if(request == "BruhOn")
     {
-        console.log("START")
         observer.observe(document.body, {childList: true,subtree: true, attributes:false}); //starts our observer
         StartChanging = true;
         var elements = document.querySelectorAll("body, body *");
@@ -56,9 +54,9 @@ chrome.runtime.onMessage.addListener(function (request)
     return "thanks"
 });
 
+//sets up bruh extension
 window.onload = function WindowLoad(event) { 
     chrome.storage.local.get({'IgnoreList':[]}, function(items){
-        console.log(items)
         if(items.IgnoreList.length > 0)
         {
             blockednodes = new RegExp("SCRIPT|STYLE|NOSCRIPT|"+items.IgnoreList.join("|").toUpperCase(), "g");

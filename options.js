@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded',function () {
         document.getElementById("ARefresh").checked = items.AutoRefresh;
     });
     chrome.storage.local.get({'BruhType':""}, function(items){
-        document.getElementById(items.BruhType).checked = true;
+        Array.from(document.getElementsByClassName("BruhTypes")).find(x => x.value == items.BruhType).setAttribute("selected", "selected")
         checkAllValues()
     });
     chrome.storage.local.get({'IgnoreList':[]}, function(items){
@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded',function () {
         //ignoreItems.childNodes.forEach(x => document.getElementById("BruhTypeOptions").childNodes.some(y =>y.name === x))
     });
     document.getElementById("ARefresh").addEventListener("click", changeValue, false);
+    document.getElementById("dropdown-main").addEventListener("change", changeValue, false);
 }, false);
 
 
@@ -21,13 +22,15 @@ document.addEventListener('DOMContentLoaded',function () {
 function changeValue(){
     chrome.storage.local.set({ "AutoRefresh": document.getElementById("ARefresh").checked });
     var i = 0
+    var selecter = document.getElementById("dropdown-main")
+    
     for (;i<document.getElementsByName('BruhTypes').length;i++){
-        if(document.getElementsByName('BruhTypes')[i].checked == true)
+        if(document.getElementsByName('BruhTypes')[i].selected == true)
         {
             break;
         }
     }
-    chrome.storage.local.set({ "BruhType":    document.getElementsByName("BruhTypes")[i].value });
+    chrome.storage.local.set({ "BruhType":    selecter.options[selecter.selectedIndex].value});
 }
 function setUpStuff(){
     
@@ -41,9 +44,7 @@ function setUpStuff(){
         document.getElementById("searchInput").value = ''
         if(ignoreItems.includes(val))
             return;
-        console.log("BRUH")
         ignoreItems.push(val)
-        console.log(ignoreItems)
         chrome.storage.local.set({'IgnoreList' : ignoreItems})
         addIgnoredListItem(val)
     })
@@ -69,22 +70,19 @@ function setUpStuff(){
 function checkAllValues(){
     for(var a = 0;a < document.getElementsByClassName("BruhTypes").length; a++)
     {
-        var element = document.getElementsByClassName("BruhTypes")[a];
-        if(element.checked){
-            console.log(true)
-            element.parentElement.style.backgroundColor  = "#d4ffd2" 
-            element.parentElement.style.transition ="background-color .2s ease .2s";
-        }else{
-            console.log(false)
-            element.parentElement.style.backgroundColor  = "whitesmoke" 
-            element.parentElement.style.transition ="background-color .2s ease .2s";
-        }
+        // var element = document.getElementsByClassName("BruhTypes")[a];
+        // if(element.checked){
+        //     element.parentElement.style.backgroundColor  = "#d4ffd2" 
+        //     element.parentElement.style.transition ="background-color .2s ease .2s";
+        // }else{
+        //     element.parentElement.style.backgroundColor  = "whitesmoke" 
+        //     element.parentElement.style.transition ="background-color .2s ease .2s";
+        // }
     }
 }
 
 function createIgnoredListItem()
 {
-    console.log(ignoreItems)
     ignoreItems.forEach(x => {
         addIgnoredListItem(x)
     })   

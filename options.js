@@ -6,12 +6,10 @@ document.addEventListener('DOMContentLoaded',function () {
     });
     chrome.storage.local.get({'BruhType':""}, function(items){
         Array.from(document.getElementsByClassName("BruhTypes")).find(x => x.value == items.BruhType).setAttribute("selected", "selected")
-        checkAllValues()
     });
     chrome.storage.local.get({'IgnoreList':[]}, function(items){
         ignoreItems = items.IgnoreList
         createIgnoredListItem()
-        //ignoreItems.childNodes.forEach(x => document.getElementById("BruhTypeOptions").childNodes.some(y =>y.name === x))
     });
     document.getElementById("ARefresh").addEventListener("click", changeValue, false);
     document.getElementById("dropdown-main").addEventListener("change", changeValue, false);
@@ -67,20 +65,6 @@ function setUpStuff(){
     })
     
 }
-function checkAllValues(){
-    for(var a = 0;a < document.getElementsByClassName("BruhTypes").length; a++)
-    {
-        // var element = document.getElementsByClassName("BruhTypes")[a];
-        // if(element.checked){
-        //     element.parentElement.style.backgroundColor  = "#d4ffd2" 
-        //     element.parentElement.style.transition ="background-color .2s ease .2s";
-        // }else{
-        //     element.parentElement.style.backgroundColor  = "whitesmoke" 
-        //     element.parentElement.style.transition ="background-color .2s ease .2s";
-        // }
-    }
-}
-
 function createIgnoredListItem()
 {
     ignoreItems.forEach(x => {

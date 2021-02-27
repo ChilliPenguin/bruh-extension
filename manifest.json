@@ -1,11 +1,11 @@
 {
     "name": "Bruh",
-    "version": "1.3.1",
-    "version_name":"Fancier",
+    "version": "1.4",
+    "version_name":"SoManyOptions",
     "description": "Bruh Moment",
-    "manifest_version": 2,
+    "manifest_version": 3,
     "icons": {"128": "logo.png"},
-    "browser_action": {
+    "action": {
         "default_popup":"popup.html",
         "default_icon": "logo.png"
     },
